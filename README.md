@@ -9,7 +9,7 @@ You can install the theme either as a clone or submodule.
 I recommend the latter. From the root of your Hugo site, type the following:
 
 ```shell
-$ git submodule add https://github.com/NotWoods/hugo-bootstrap-5.git themes/hugo-bootstrap-5
+$ git submodule add https://github.com/kinderdorf-schneckenmuhle-e-v/schnecke-theme-for-hugo.git themes/schnecke-theme-for-hugo
 $ git submodule init
 $ git submodule update
 ```
