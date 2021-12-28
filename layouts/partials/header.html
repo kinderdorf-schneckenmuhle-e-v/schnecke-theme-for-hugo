@@ -1,44 +1,60 @@
 {{ $colorScheme := default "light" .Site.Params.header.colorScheme }}
 
-<header class="blog-header">
-    <nav class="navbar navbar-expand-md navbar-{{ $colorScheme }} bg-{{ $colorScheme }}">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}">
-                {{ partial "brand" . }}
+
+<header style="background-color: #07418C;">
+    <div class="container">
+        <div class="img-fluid">
+            <a  href="{{ .Site.BaseURL | relLangURL }}">
+                <img src="images/schnecke_schriftzug.svg"
+                     style="display: block; margin-left: auto; margin-right: auto; width: 100%;"/>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                <ul class="navbar-nav">
-                    {{ $url := .RelPermalink | relLangURL }}
-                    {{ range .Site.Menus.main }}
-                    <li class="nav-item">
-                        {{ if eq (hasPrefix .URL "mailto:") true }}
-                            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
-                        {{ else }}
-                            {{ $menuUrl := .URL | relLangURL }}
-                            <a class="nav-link {{ if eq $url $menuUrl }}active{{end}}" href="{{ $menuUrl }}">{{ .Name }}</a>
-                        {{ end }}
-                    </li>
-                    {{ end }}
-                </ul>
-                {{ if gt (len .Site.Home.AllTranslations) 1 }}
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ i18n "language" }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            {{ range .Site.Home.AllTranslations }}
-                                <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
-                            {{ end }}
-                        </ul>
-                    </li>
-                </ul>
-                {{ end }}
-            </div>
         </div>
-    </nav>
+        <!--    <nav class="navbar navbar-expand-md navbar-{{ $colorScheme }} bg-{{ $colorScheme }}">-->
+        <nav class="navbar navbar-expand-md navbar-{{ $colorScheme }}">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        {{ $url := .RelPermalink | relLangURL }}
+                        {{ range .Site.Menus.main }}
+                        <li class="nav-item">
+                            {{ if eq (hasPrefix .URL "mailto:") true }}
+                            <a class="nav-link" href="{{ .URL }}">
+                                <span class="nav-link-text">{{ .Name }}</span>
+                            </a>
+                            {{ else }}
+                            {{ $menuUrl := .URL | relLangURL }}
+                            <a class="nav-link {{ if eq $url $menuUrl }}active{{end}}" href="{{ $menuUrl }}">
+                                <span class="nav-link-text">
+                                {{ .Name }}
+                                </span>
+                            </a>
+                            {{ end }}
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ if gt (len .Site.Home.AllTranslations) 1 }}
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ i18n "language" }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                {{ range .Site.Home.AllTranslations }}
+                                <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    </ul>
+                    {{ end }}
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>

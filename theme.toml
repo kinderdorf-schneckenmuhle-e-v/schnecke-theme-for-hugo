@@ -7,6 +7,7 @@ tags = ["blog", "multilingual", "bootstrap"]
 features = ["blog", "responsive", "Google Analytics", "bootstrap", "multilingual", "i18n"]
 min_version = 0.91
 
+
 [author]
   name = "Gregor Suhr"
   homepage = "https://github.com/kinderdorf-schneckenmuhle-e-v/schnecke-theme-for-hugo"
