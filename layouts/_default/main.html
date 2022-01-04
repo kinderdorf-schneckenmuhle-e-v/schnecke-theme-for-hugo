@@ -1,0 +1,10 @@
+<article class="blog-post">
+    <header>
+        main.html
+        {{ partial "post-title" . }}
+        {{ partial "post-date" . }}
+        {{ partial "post-tags" . }}
+        {{ partial "post-categories" . }}
+    </header>
+    {{ .Content }}
+</article>
