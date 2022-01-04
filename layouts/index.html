@@ -1,13 +1,9 @@
 {{ define "main" }}
 
-<div class="container">
-
-    {{ if .Content }}
-    <section class="card card-panel card-panel-default">
-        {{ .Content }}
-    </section>
-    {{ end }}
-
+<div class="container" >
+        {{ if .Content }}
+            {{ .Content }}
+        {{ end }}
 </div>
 
 {{ end }}
